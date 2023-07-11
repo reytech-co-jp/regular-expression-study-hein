@@ -6,22 +6,30 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.regularExp.TxtSentenceChecker;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class TxtSentenceCheckerTest {
 	
 	private TxtSentenceChecker checkTextService = new TxtSentenceChecker();
 
-	@Test
-	void txtで終わる文字列を使ったらtrueを返すこと() {
-		assertTrue(checkTextService.matchTxtPattern("Hello.txt"));
-		assertTrue(checkTextService.matchTxtPattern("a.txt"));
+	@ParameterizedTest
+	@ValueSource(strings = {
+			"Hello.txt",
+			"a.txt"
+	})
+	void txtで終わる文字列を使ったらtrueを返すこと(String text) {
+		assertTrue(checkTextService.matchTxtPattern(text));
 	}
 
-	@Test
-	void txtで終わらない文字列を使ったらfalseを返すこと() {
-		assertFalse(checkTextService.matchTxtPattern("Hello.t"));
-		assertFalse(checkTextService.matchTxtPattern("Hello.txt.pdf"));
-		assertFalse(checkTextService.matchTxtPattern("Hello"));
-		assertFalse(checkTextService.matchTxtPattern(""));
+	@ParameterizedTest
+	@ValueSource(strings = {
+			"Hello.t",
+			"Hello.txt.pdf",
+			"Hello",
+			""
+	})
+	void txtで終わらない文字列を使ったらfalseを返すこと(String text) {
+		assertFalse(checkTextService.matchTxtPattern(text));
 	}
 }

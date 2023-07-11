@@ -6,24 +6,32 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.regularExp.FourDigitSentenceChecker;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class FourDigitSentenceCheckerTest {
 	
 	private FourDigitSentenceChecker textCheckService = new FourDigitSentenceChecker();
 
-	@Test
-	void 四桁の半角数字の文字列を使ったらtrueを返すこと() {
-		assertTrue(textCheckService.matchFourDigitPattern("1234"));
-		assertTrue(textCheckService.matchFourDigitPattern("1998"));
+	@ParameterizedTest
+	@ValueSource(strings = {
+			"1234",
+			"1998"
+	})
+	void 四桁の半角数字の文字列を使ったらtrueを返すこと(String text) {
+		assertTrue(textCheckService.matchFourDigitPattern(text));
 	}
 	
-	@Test
-	void 四桁の半角数字ではない文字列を使ったらfalseを返すこと() {
-		assertFalse(textCheckService.matchFourDigitPattern("123456"));
-		assertFalse(textCheckService.matchFourDigitPattern("123"));
-		assertFalse(textCheckService.matchFourDigitPattern("12"));
-		assertFalse(textCheckService.matchFourDigitPattern("0"));
-		assertFalse(textCheckService.matchFourDigitPattern(""));
+	@ParameterizedTest
+	@ValueSource(strings = {
+			"123456",
+			"123",
+			"12",
+			"0",
+			""
+	})
+	void 四桁の半角数字ではない文字列を使ったらfalseを返すこと(String text) {
+		assertFalse(textCheckService.matchFourDigitPattern(text));
 	}
 
 }
