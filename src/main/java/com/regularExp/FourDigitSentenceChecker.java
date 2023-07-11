@@ -5,10 +5,9 @@ import java.util.regex.Pattern;
 
 public class FourDigitSentenceChecker {
 
-	private static final String FOUR_DIGIT_REGEX = "^\\d{4}";
-	
+	private static final Pattern pattern = Pattern.compile("^\\d{4}");
+
 	public boolean matchFourDigitPattern(String text) {
-		Pattern pattern = Pattern.compile(FOUR_DIGIT_REGEX);
 		Matcher matcher = pattern.matcher(text);
 		return matcher.matches();
 	}
