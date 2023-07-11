@@ -12,13 +12,13 @@ public class TxtSentenceCheckerTest {
 	private TxtSentenceChecker checkTextService = new TxtSentenceChecker();
 
 	@Test
-	void txtで終わる文字列を使ってテストする() {
+	void txtで終わる文字列を使ったらtrueを返すこと() {
 		assertTrue(checkTextService.matchTxtPattern("Hello.txt"));
 		assertTrue(checkTextService.matchTxtPattern("a.txt"));
 	}
 
 	@Test
-	void txtで終わらない文字列を使ってテストする() {
+	void txtで終わらない文字列を使ったらfalseを返すこと() {
 		assertFalse(checkTextService.matchTxtPattern("Hello.t"));
 		assertFalse(checkTextService.matchTxtPattern("Hello.txt.pdf"));
 		assertFalse(checkTextService.matchTxtPattern("Hello"));

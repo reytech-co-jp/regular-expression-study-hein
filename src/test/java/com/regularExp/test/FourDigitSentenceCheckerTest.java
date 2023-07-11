@@ -12,13 +12,13 @@ public class FourDigitSentenceCheckerTest {
 	private FourDigitSentenceChecker textCheckService = new FourDigitSentenceChecker();
 
 	@Test
-	void 四桁の半角数字の文字列を使ってテストする() {
+	void 四桁の半角数字の文字列を使ったらtrueを返すこと() {
 		assertTrue(textCheckService.matchFourDigitPattern("1234"));
 		assertTrue(textCheckService.matchFourDigitPattern("1998"));
 	}
 	
 	@Test
-	void 四桁の半角数字ではない文字列を使ってテストする() {
+	void 四桁の半角数字ではない文字列を使ったらfalseを返すこと() {
 		assertFalse(textCheckService.matchFourDigitPattern("123456"));
 		assertFalse(textCheckService.matchFourDigitPattern("123"));
 		assertFalse(textCheckService.matchFourDigitPattern("12"));
