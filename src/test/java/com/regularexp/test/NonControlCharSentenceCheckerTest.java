@@ -1,6 +1,6 @@
-package com.regularExp.test;
+package com.regularexp.test;
 
-import com.regularExp.NonControlCharSentenceChecker;
+import com.regularexp.NonControlCharSentenceChecker;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
