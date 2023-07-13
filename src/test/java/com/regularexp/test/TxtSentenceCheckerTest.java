@@ -1,9 +1,9 @@
-package com.regularExp.test;
+package com.regularexp.test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.regularExp.TxtSentenceChecker;
+import com.regularexp.TxtSentenceChecker;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
